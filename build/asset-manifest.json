@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/marketing-ai-service-fe/static/css/main.e0c08059.css",
+    "main.js": "/marketing-ai-service-fe/static/js/main.cf1494ee.js",
+    "static/media/main_img.png": "/marketing-ai-service-fe/static/media/main_img.8b9aa2abe24cc7fe7a87.png",
+    "static/media/title.png": "/marketing-ai-service-fe/static/media/title.72005799e48122afb0aa.png",
+    "index.html": "/marketing-ai-service-fe/index.html",
+    "main.e0c08059.css.map": "/marketing-ai-service-fe/static/css/main.e0c08059.css.map",
+    "main.cf1494ee.js.map": "/marketing-ai-service-fe/static/js/main.cf1494ee.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e0c08059.css",
+    "static/js/main.cf1494ee.js"
+  ]
+}
