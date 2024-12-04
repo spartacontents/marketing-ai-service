@@ -4,13 +4,13 @@ import {
   Route
 } from 'react-router-dom';
 import Home from './routes/Home';
-import Detail from './routes/Detail';
+import Counseling from './routes/Counseling';
 
 function App() {
   return <Router>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/counseling" element={<Detail />} />
+      <Route path="/counseling" element={<Counseling />} />
     </Routes>
   </Router>
 }
