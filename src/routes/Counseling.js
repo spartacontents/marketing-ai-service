@@ -46,10 +46,18 @@ function Counseling() {
         // 마지막 응답
         setTimeout(async () => {
           // 서버로 데이터 전송
+          setMessages((prev) => [
+            ...prev,
+            { sender: "bot", text: `${userInfo.name}은 ${input}에 대해 고민하고 있군. 이에 대해 내가 당신에게 줄 수 있는 해답은 이렇소.` }, 
+          ]);
+        }, 500);
+
+        setTimeout(async () => {
+          // 서버로 데이터 전송
           const response = await sendUserInfoToServer({ ...userInfo, [keys[step]]: input });
           setMessages((prev) => [
             ...prev,
-            { sender: "bot", text: `${userInfo.name}은 ${input}에 대해 고민하고 있군. ${response.fact}` }, // TODO: 응답 데이터에 맞춰 수정 필요
+            { sender: "bot", text: `${response.fact}` }, // TODO: 응답 데이터에 맞춰 수정 필요
           ]);
         }, 500);
       }
