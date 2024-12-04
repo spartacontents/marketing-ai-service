@@ -10,16 +10,17 @@ function Counseling() {
   const [step, setStep] = useState(0); // 입력 단계 관리
   const [userInfo, setUserInfo] = useState({}); // 유저 정보 저장
 
-  const getQuestions = (name) => [
+  const getQuestions = (name, concern) => [
     "이름이 무엇이지?",
     `${name}님이 태어난 연도, 월, 일을 차례로 말하시오 (예: 1990년 1월 1일)`,
     `${name}님, 태어난 시간도 혹시 아는가? 안다면 말하시오(모를 경우 ‘모름’이라고 작성하시오) (예: 14시 30분)`,
     `자, ${name}님, 무엇이 고민이지?`,
+    `${name}님, 당신은 '${concern}'에 대해 고민하고 있군요. 제시할 수 있는 해답은 이렇소.` // 고민 언급
   ];
 
   useEffect(() => {
     // 페이지에 들어오자마자 첫 번째 질문 추가
-    setMessages([{ sender: "bot", text: getQuestions()[0] }]);
+    setMessages([{ sender: "bot", text: getQuestions('', '')[0] }]);
   }, []); // 빈 배열을 넣어 컴포넌트 첫 렌더링 시 실행
 
   const handleSend = (input) => {
@@ -31,7 +32,7 @@ function Counseling() {
       setUserInfo((prev) => ({ ...prev, [keys[step]]: input }));
 
       // 다음 질문 생성
-      const updatedQuestions = getQuestions(userInfo.name || input);
+      const updatedQuestions = getQuestions(userInfo.name || input, userInfo.concern || input);
 
       if (step < 3) {
         // 봇의 질문을 0.5초 지연 후 추가
@@ -46,10 +47,9 @@ function Counseling() {
         setTimeout(async () => {
           // 서버로 데이터 전송
           const response = await sendUserInfoToServer({ ...userInfo, [keys[step]]: input });
-          console.log('hi:', response);
           setMessages((prev) => [
             ...prev,
-            { sender: "bot", text: `${response.fact}` }, // TODO: 응답 데이터에 맞춰 수정 필요
+            { sender: "bot", text: `${userInfo.name}은 ${input}에 대해 고민하고 있군. ${response.fact}` }, // TODO: 응답 데이터에 맞춰 수정 필요
           ]);
         }, 500);
       }
@@ -67,7 +67,6 @@ function Counseling() {
         headers: {
           'Content-Type': 'application/json',
         },
-        // body: JSON.stringify(data), // TODO: 요청 바디에 생년월일, 시간 포함해야함
       });
 
       if (response.ok) {
