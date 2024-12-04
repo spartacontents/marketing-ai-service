@@ -12,7 +12,7 @@ function Input({ onSend }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '10px' }}>
+    <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '10px', margin: '30px 0' }}>
       <input
         type="text"
         value={input}

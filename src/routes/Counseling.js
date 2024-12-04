@@ -99,6 +99,9 @@ function Counseling() {
         <div style={{ padding: "20px", maxWidth: "500px", margin: "auto", borderRadius: "8px" }}>
           <Chat messages={messages} />
           <Input onSend={handleSend} />
+          <div className={styles.btnContainer}>
+            <button>인쇄하기</button>
+          </div>
         </div>
       </div>
     </div>
