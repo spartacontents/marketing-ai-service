@@ -4,6 +4,7 @@ import Input from './Input';
 import logoImg from '../assets/logo.png';
 import styles from './Home.module.css';
 import { toPng } from 'html-to-image';
+import { useNavigate } from 'react-router-dom';
 
 function Counseling() {
   const [messages, setMessages] = useState([]); // 대화 메시지 관리
@@ -11,6 +12,11 @@ function Counseling() {
   const [userInfo, setUserInfo] = useState({}); // 유저 정보 저장
   const fortuneRef = useRef(null); // fortune 메시지를 참조하는 ref
   const lambdaUrl = "https://m9xr5grrkj.execute-api.ap-northeast-2.amazonaws.com/dev/api/fortune";
+
+  const navigate = useNavigate(); // useNavigate 훅 사용
+  const goHome = () => {
+    navigate("/"); // 버튼 클릭 시 / 페이지로 이동
+  }
 
   const getQuestions = (concern) => [
     "이름이 무엇이지?",
@@ -85,8 +91,8 @@ function Counseling() {
   return (
     <div className={styles.container}>
       <div className={styles.body}>
-        <div className={styles.logoContainer}>
-          <img src={logoImg} alt="logo" />
+      <div className={styles.logoContainer} onClick={goHome}>
+            <img src={logoImg} alt="logo" />
         </div>
         <div style={{ padding: "20px", maxWidth: "600px", margin: "auto", borderRadius: "8px" }}>
           <Chat messages={messages} userInfo={userInfo} fortuneRef={fortuneRef} />
