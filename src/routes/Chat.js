@@ -66,7 +66,7 @@ function Chat({ messages, userInfo }) {
           >
             <FortuneMessage userInfo={userInfo} msg={msg} />
             <div className={styles.btnContainer}>
-              <button onClick={handlePrint}>인쇄하기</button>
+              <button className={styles.sendBtn} onClick={handlePrint}>인쇄하기</button>
             </div>
           </div>
         ) : (
