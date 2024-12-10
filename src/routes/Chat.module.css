@@ -1,10 +1,12 @@
 .infoContainer {
     height: 90px;
+    margin: 0;
 }
 
 .adviceContainer {
-    height: 135px;
+    height: 125px;
     box-sizing: border-box;
+    margin: 0;
 }
 
 .amuletContainer {
