@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import btnSend from '../assets/send_btn.png';
 
 function Input({ onSend }) {
   const [input, setInput] = useState('');
@@ -31,16 +30,10 @@ function Input({ onSend }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          fontSize: "18px"
         }}
       >
-        <img
-          src={btnSend} // 원하는 이미지의 URL
-          alt="보내기"
-          style={{
-            height: '20px', // 이미지 크기 조정
-            width: '20px',  // 이미지 크기 조정
-          }}
-        />
+        입력
     </button>
     </form>
   );
