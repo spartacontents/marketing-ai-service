@@ -1,0 +1,46 @@
+.infoContainer {
+    height: 90px;
+}
+
+.adviceContainer {
+    height: 135px;
+    box-sizing: border-box;
+}
+
+.amuletContainer {
+    height: 95px;
+    box-sizing: border-box;
+}
+
+.fortuneContainer {
+    height: 315px;
+}
+
+.messageContainer {
+    height: 100px;
+}
+
+.btnContainer {
+    position: absolute;
+    right: 0;
+}
+
+.mainText {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+}
+.subText {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.plainText1 {
+    font-size: 13px;
+}
+
+.plainText2 {
+    font-size: 13px;
+    margin-top: 10px;
+}

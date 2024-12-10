@@ -3,6 +3,8 @@ import mainImg from '../assets/main_img.png';
 import logoImg from '../assets/logo.png';
 import titleImg from '../assets/title.png';
 import styles from './Home.module.css';
+
+
 function Home() {
 
   const navigate = useNavigate(); // useNavigate 훅 사용
