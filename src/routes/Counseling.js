@@ -10,9 +10,9 @@ function Counseling() {
   const [step, setStep] = useState(0); // 입력 단계 관리
   const [userInfo, setUserInfo] = useState({}); // 유저 정보 저장
   const fortuneRef = useRef(null); // fortune 메시지를 참조하는 ref
-  const lambdaUrl = "http://localhost:3000/dev/api/fortune";
+  const lambdaUrl = "https://m9xr5grrkj.execute-api.ap-northeast-2.amazonaws.com/dev/api/fortune";
 
-  const getQuestions = (name, concern) => [
+  const getQuestions = (concern) => [
     "이름이 무엇이지?",
     `태어난 연도, 월, 일을 차례로 말하시오 (예: 1990년 1월 1일)`,
     `태어난 시간도 혹시 아는가? 안다면 말하시오(모를 경우 ‘모름’이라고 작성하시오) (예: 14시 30분)`,
