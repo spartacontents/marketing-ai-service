@@ -38,8 +38,13 @@ function Chat({ messages, userInfo }) {
             </html>
           `);
           newWindow.document.close(); // Ensure the document is fully loaded
-          newWindow.print(); // Trigger the print functionality
-          newWindow.close(); // Close the tab after printing
+
+          newWindow.onload = () => {
+            newWindow.focus();
+            newWindow.print();
+            newWindow.close(); // Close the new window after printing
+          };
+
         }
       } catch (error) {
         console.error('Error converting to image:', error);
@@ -49,6 +54,7 @@ function Chat({ messages, userInfo }) {
 
   return (
     <div
+      ref={chatContainerRef}
       style={{
         height: '600px', // Fixed height for the chat container
         overflowY: 'scroll', // Enable vertical scrolling

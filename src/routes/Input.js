@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Input({ onSend }) {
+function Input({ onSend, disabled }) {
   const [input, setInput] = useState('');
 
   const handleSubmit = (e) => {
@@ -14,6 +14,7 @@ function Input({ onSend }) {
   return (
     <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '10px', margin: '30px 0' }}>
       <input
+        disabled={disabled}
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
@@ -22,6 +23,7 @@ function Input({ onSend }) {
       />
       <button
         type="submit"
+        disabled={disabled}
         style={{
           padding: '15px',
           borderRadius: '40px',
