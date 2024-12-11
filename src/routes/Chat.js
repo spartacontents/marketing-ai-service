@@ -18,7 +18,9 @@ function Chat({ messages, userInfo }) {
       try {
 
         // Convert the DOM element to an image with specified width and height
-        const imageUrl = await toPng(fortuneRef.current);
+        const imageUrl = await toPng(fortuneRef.current, {
+          pixelRatio: 1.45
+        });
 
         // Open the image in a new tab
         const newWindow = window.open();
