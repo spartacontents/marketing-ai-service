@@ -1,7 +1,7 @@
 import React from 'react';
 import fortuneBackground from '../assets/receipt.png'; // 이미지 경로
 import styles from './Chat.module.css';
-
+// Fortune message
 const FortuneMessage = ({ userInfo, msg, key, ref }) => {
   return (
     <div
